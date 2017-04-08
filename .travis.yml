@@ -7,7 +7,8 @@ node_js:
 addons:
   ssh_known_hosts: fructa.ga
 script:
-- mvn clean package -DskipTests
+- npm i
+- npm run build
 - docker build -t lennonsaves/fructa-ui:latest .
 after_success:
 - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
